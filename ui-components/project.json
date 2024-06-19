@@ -1,0 +1,34 @@
+{
+  "name": "ui-components",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/libs/ui-components/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/react-native:bundle",
+      "options": {
+        "entryFile": "packages/libs/ui-components/src/index.ts",
+        "outputDir": "dist/packages/libs/ui-components",
+        "assets": ["packages/libs/ui-components/src/assets"],
+        "bundleOutput": "dist/packages/libs/ui-components/index.bundle"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/libs/ui-components/**/*.ts",
+          "packages/libs/ui-components/**/*.tsx"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/libs/ui-components/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

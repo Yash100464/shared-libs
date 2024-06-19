@@ -1,0 +1,34 @@
+{
+  "name": "navigation",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/libs/navigation/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/react-native:bundle",
+      "options": {
+        "entryFile": "packages/libs/navigation/src/index.ts",
+        "outputDir": "dist/packages/libs/navigation",
+        "assets": ["packages/libs/navigation/src/assets"],
+        "bundleOutput": "dist/packages/libs/navigation/index.bundle"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/libs/navigation/**/*.ts",
+          "packages/libs/navigation/**/*.tsx"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/libs/navigation/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

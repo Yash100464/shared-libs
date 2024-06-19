@@ -1,0 +1,34 @@
+{
+  "name": "theme",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/libs/theme/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/react-native:bundle",
+      "options": {
+        "entryFile": "packages/libs/theme/src/index.ts",
+        "outputDir": "dist/packages/libs/theme",
+        "assets": ["packages/libs/theme/src/assets"],
+        "bundleOutput": "dist/packages/libs/theme/index.bundle"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/libs/theme/**/*.ts",
+          "packages/libs/theme/**/*.tsx"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/libs/theme/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

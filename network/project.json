@@ -1,0 +1,34 @@
+{
+  "name": "network",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/libs/network/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/react-native:bundle",
+      "options": {
+        "entryFile": "packages/libs/network/src/index.ts",
+        "outputDir": "dist/packages/libs/network",
+        "assets": ["packages/libs/network/src/assets"],
+        "bundleOutput": "dist/packages/libs/network/index.bundle"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "packages/libs/network/**/*.ts",
+          "packages/libs/network/**/*.tsx"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "packages/libs/network/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
